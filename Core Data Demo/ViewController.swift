@@ -23,6 +23,25 @@ class ViewController: UIViewController {
         //Creates, configures, and returns an instance of the class for the entity with a given name
         let newUser = NSEntityDescription.insertNewObject(forEntityName: "Users", into: context)
         
+        
+        
+        //Sets the property of the receiver specified by a given key to a given value.
+        newUser.setValue("Leonado", forKey: "username")
+        newUser.setValue("myPass", forKey: "password")
+        newUser.setValue(35, forKey: "age")
+        
+        
+        //Do try catch construction block for saving context | Save default values above
+        do {
+            
+            try context.save()
+            print("Saved")
+            
+        }catch{
+            
+            print("There was an error")
+        }
+        
     }
 }
 
